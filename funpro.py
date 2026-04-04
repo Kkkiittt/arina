@@ -2,7 +2,7 @@ import json
 import re #regex
 from datetime import datetime
 def imya(name):
-    return re.fullmatch(r"[A-Za-z\s'-]+", name) is not None #перепроверить
+    return re.fullmatch(r"[A-Za-z\s'-]+", name) is not None 
 def birtg(birth):
     try:
         datetime.strptime(birth.strip(), "%Y-%m-%d")
@@ -45,7 +45,7 @@ def que():
          [("never", 0), ("rarely", 1), ("sometimes", 2), ("often", 3), ("always", 4)])
     ]
 def surv():
-    questions=que() #чек листы
+    questions=que()
     totscore=0
     for h,(question,options) in enumerate(questions,1): #or use range? range(len(totscore))
         print(f"\nQue{h}:{question}")
