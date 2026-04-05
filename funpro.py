@@ -30,13 +30,16 @@ def save_csv(data):
     df.to_csv(f, index=False)
 
 # --- Init State ---
-for k, v in {'step': 0, 'info': {}, 'scores': {}}.items():
-    if k not in st.session_state: st.session_state[k] = v
+# Using 'user_info' instead of 'info' to be clearer and avoid clashes
+if 'step' not in st.session_state: st.session_state.step = 0
+if 'user_info' not in st.session_state: st.session_state.user_info = {}
+if 'scores' not in st.session_state: st.session_state.scores = {}
 
 # --- Step 0: Info ---
 if st.session_state.step == 0:
     st.title("🌿 Herbal Tea Survey")
-    with st.form("info"):
+    # Changed key to "form_info" to avoid conflict with session state
+    with st.form("form_info"):
         n = st.text_input("Name")
         b = st.text_input("DOB (YYYY-MM-DD)")
         i = st.text_input("Student ID")
@@ -45,7 +48,7 @@ if st.session_state.step == 0:
             if e: 
                 for x in e: st.error(x)
             else:
-                st.session_state.info = {"Name": n, "DOB": b, "ID": i}
+                st.session_state.user_info = {"Name": n, "DOB": b, "ID": i}
                 st.session_state.step = 1
                 st.rerun()
 
@@ -53,7 +56,8 @@ if st.session_state.step == 0:
 elif st.session_state.step == 1:
     st.title("📝 Questions")
     qs = load_questions()
-    with st.form("quiz"):
+    # Changed key to "form_quiz"
+    with st.form("form_quiz"):
         temp_scores = {}
         for idx, item in enumerate(qs):
             st.markdown(f"**{idx+1}. {item['question']}**")
@@ -85,13 +89,14 @@ else:
     else: st.info("ℹ️ Neutral")
 
     # Save
-    row = {**st.session_state.info, "Score": total, "Result": res, "Time": datetime.now()}
+    row = {**st.session_state.user_info, "Score": total, "Result": res, "Time": datetime.now()}
     save_csv(row)
     st.success("Saved to survey_results.csv")
     
     if st.button("Restart"):
         st.session_state.step = 0
         st.session_state.scores = {}
+        st.session_state.user_info = {}
         st.rerun()
 
     if os.path.exists("survey_results.csv"):
