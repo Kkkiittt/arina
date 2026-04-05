@@ -44,10 +44,10 @@ def get_questions():
          [("Never", 0), ("Rarely", 1), ("Sometimes", 2), ("Often", 3), ("Always", 4)]),
         
         ("Do you feel more mentally alert after drinking herbal tea?",
-         [("Always", 0), ("Often", 1), ("Maybe", 2), ("Rarely", 3), ("Never", 4)]), # Note: Reverse scoring
+         [("Always", 0), ("Often", 1), ("Maybe", 2), ("Rarely", 3), ("Never", 4)]), 
         
         ("How often do you feel calm?",
-         [("Always", 0), ("Often", 1), ("Sometimes", 2), ("Rarely", 3), ("Never", 4)]), # Note: Reverse scoring
+         [("Always", 0), ("Often", 1), ("Sometimes", 2), ("Rarely", 3), ("Never", 4)]), 
         
         ("Does herbal tea improve your overall study performance?",
          [("Never", 0), ("Rarely", 1), ("Sometimes", 2), ("Very Often", 3), ("Always", 4)]),
@@ -59,7 +59,7 @@ def get_questions():
          [("Never", 0), ("Rarely", 1), ("Sometimes", 2), ("Super Often", 3), ("Always", 4)]),
         
         ("Do you experience less stress when you drink herbal tea during study sessions?",
-         [("Always", 0), ("Often", 1), ("Sometimes", 2), ("Rarely", 3), ("Never", 4)]), # Note: Reverse scoring
+         [("Always", 0), ("Often", 1), ("Sometimes", 2), ("Rarely", 3), ("Never", 4)]), 
         
         ("Does herbal tea help reduce anxiety before exams or assignments?",
          [("Never", 0), ("Rarely", 1), ("Sometimes", 2), ("Often", 3), ("Always", 4)]),
@@ -145,37 +145,39 @@ if st.session_state.step == 0:
 # --- STEP 1: SURVEY QUESTIONS ---
 elif st.session_state.step == 1:
     st.title("📝 Survey Questions")
-    st.progress(0.5) # Visual indicator
+    st.progress(0.5) 
     
     questions = get_questions()
     
-    # We use a form to collect all answers at once to prevent page reloads on every click
     with st.form("survey_form"):
-        temp_answers = {}
+        # We will store the final integer scores here
+        final_scores = {}
         
         for i, (question_text, options) in enumerate(questions):
             st.markdown(f"**{i+1}. {question_text}**")
             
-            # Create radio buttons for each option
-            # We store the score value directly as the key for the radio button
+            # Extract labels and scores
             option_labels = [opt[0] for opt in options]
-            option_scores = [opt[1] for opt in options]
             
-            # Map label to score for retrieval later
-            label_to_score = {label: score for label, score in options}
+            # Create a mapping from Label -> Score for later lookup
+            label_to_score_map = {opt[0]: opt[1] for opt in options}
             
+            # User selects a LABEL (string)
             selected_label = st.radio(
                 f"Select for Q{i+1}", 
                 options=option_labels,
                 key=f"q_{i}",
-                horizontal=False # Set to True if you want them side-by-side
+                horizontal=False
             )
-            temp_answers[i] = label_to_score[selected_label]
+            
+            # Immediately convert that label to the integer score
+            final_scores[i] = label_to_score_map[selected_label]
             
         submit_survey = st.form_submit_button("Submit Answers")
         
         if submit_survey:
-            st.session_state.answers = temp_answers
+            # Save the dictionary of INTEGER scores
+            st.session_state.answers = final_scores
             st.session_state.step = 2
             st.rerun()
 
@@ -183,7 +185,7 @@ elif st.session_state.step == 1:
 elif st.session_state.step == 2:
     st.title("📊 Your Results")
     
-    # Calculate Score
+    # Calculate Score (Now safe because values are integers)
     total_score = sum(st.session_state.answers.values())
     result_text = calculate_result(total_score)
     
