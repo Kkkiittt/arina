@@ -1,0 +1,152 @@
+[
+    {
+        "question": "Do you regularly drink herbal tea while studying?",
+        "options": [
+            {"label": "Never", "score": 0},
+            {"label": "Rarely", "score": 1},
+            {"label": "Sometimes", "score": 2},
+            {"label": "Often", "score": 3},
+            {"label": "Always", "score": 4}
+        ]
+    },
+    {
+        "question": "Do you prefer herbal tea over caffeinated drinks during study sessions?",
+        "options": [
+            {"label": "Never", "score": 0},
+            {"label": "Rarely", "score": 1},
+            {"label": "Sometimes", "score": 2},
+            {"label": "Often", "score": 3},
+            {"label": "Always", "score": 4}
+        ]
+    },
+    {
+        "question": "Do you consume herbal tea specifically to improve your concentration?",
+        "options": [
+            {"label": "Never", "score": 0},
+            {"label": "Rarely", "score": 1},
+            {"label": "Sometimes", "score": 2},
+            {"label": "Often", "score": 3},
+            {"label": "Always", "score": 4}
+        ]
+    },
+    {
+        "question": "Do you drink herbal tea at least 3 times per week while studying?",
+        "options": [
+            {"label": "Never", "score": 0},
+            {"label": "Rarely", "score": 1},
+            {"label": "Maybe", "score": 2},
+            {"label": "Often", "score": 3},
+            {"label": "Always", "score": 4}
+        ]
+    },
+    {
+        "question": "Do you choose specific types of herbal tea based on their calming effects?",
+        "options": [
+            {"label": "Never", "score": 0},
+            {"label": "Rarely", "score": 1},
+            {"label": "Sometimes", "score": 2},
+            {"label": "Often", "score": 3},
+            {"label": "Always", "score": 4}
+        ]
+    },
+    {
+        "question": "Does drinking herbal tea help you stay focused for longer periods?",
+        "options": [
+            {"label": "Never", "score": 0},
+            {"label": "Rarely", "score": 1},
+            {"label": "Sometimes", "score": 2},
+            {"label": "Often", "score": 3},
+            {"label": "Always", "score": 4}
+        ]
+    },
+    {
+        "question": "Do you feel more mentally alert after drinking herbal tea?",
+        "options": [
+            {"label": "Always", "score": 0},
+            {"label": "Often", "score": 1},
+            {"label": "Maybe", "score": 2},
+            {"label": "Rarely", "score": 3},
+            {"label": "Never", "score": 4}
+        ]
+    },
+    {
+        "question": "How often do you feel calm?",
+        "options": [
+            {"label": "Always", "score": 0},
+            {"label": "Often", "score": 1},
+            {"label": "Sometimes", "score": 2},
+            {"label": "Rarely", "score": 3},
+            {"label": "Never", "score": 4}
+        ]
+    },
+    {
+        "question": "Does herbal tea improve your overall study performance?",
+        "options": [
+            {"label": "Never", "score": 0},
+            {"label": "Rarely", "score": 1},
+            {"label": "Sometimes", "score": 2},
+            {"label": "Very Often", "score": 3},
+            {"label": "Always", "score": 4}
+        ]
+    },
+    {
+        "question": "Does herbal tea reduce distractions during your study sessions?",
+        "options": [
+            {"label": "Never", "score": 0},
+            {"label": "Rarely", "score": 1},
+            {"label": "Sometimes", "score": 2},
+            {"label": "Often", "score": 3},
+            {"label": "Always", "score": 4}
+        ]
+    },
+    {
+        "question": "Does herbal tea help you feel calmer while studying?",
+        "options": [
+            {"label": "Never", "score": 0},
+            {"label": "Rarely", "score": 1},
+            {"label": "Sometimes", "score": 2},
+            {"label": "Super Often", "score": 3},
+            {"label": "Always", "score": 4}
+        ]
+    },
+    {
+        "question": "Do you experience less stress when you drink herbal tea during study sessions?",
+        "options": [
+            {"label": "Always", "score": 0},
+            {"label": "Often", "score": 1},
+            {"label": "Sometimes", "score": 2},
+            {"label": "Rarely", "score": 3},
+            {"label": "Never", "score": 4}
+        ]
+    },
+    {
+        "question": "Does herbal tea help reduce anxiety before exams or assignments?",
+        "options": [
+            {"label": "Never", "score": 0},
+            {"label": "Rarely", "score": 1},
+            {"label": "Sometimes", "score": 2},
+            {"label": "Often", "score": 3},
+            {"label": "Always", "score": 4}
+        ]
+    },
+    {
+        "question": "Do you feel more relaxed and less overwhelmed when drinking herbal tea?",
+        "options": [
+            {"label": "Never", "score": 0},
+            {"label": "Rarely", "score": 1},
+            {"label": "Sometimes", "score": 2},
+            {"label": "Often", "score": 3},
+            {"label": "Always", "score": 4}
+        ]
+    },
+    {
+        "question": "Does herbal tea create a comfortable and productive study environment for you?",
+        "options": [
+            {"label": "Never", "score": 0},
+            {"label": "Rarely", "score": 1},
+            {"label": "Sometimes", "score": 2},
+            {"label": "Often", "score": 3},
+            {"label": "Always", "score": 4}
+        ]
+    }
+]
